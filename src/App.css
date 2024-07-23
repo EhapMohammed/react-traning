@@ -1,0 +1,15 @@
+.main-layout
+{
+    display: grid;
+    grid-template-columns: 1fr 270px;
+    height: calc(100vh - 112px);
+}
+
+.main-content
+{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
