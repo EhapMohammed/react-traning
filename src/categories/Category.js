@@ -1,10 +1,10 @@
-import Services from "./services/Services";
+import Services from "../services/Services";
 
-function category(props){
+function Category(){
 
     return(
         <Services/>
     );
 }
 
-export default category ;
+export default Category ;

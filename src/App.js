@@ -1,6 +1,8 @@
 import Navbar from "./navbar/Navbar";
 import React from 'react';
+import { Routes , Route , Link } from "react-router-dom";
 import Services from "./services/Services";
+import Category from "./categories/Category"
 function App() {
 
   const servicsPramiters = [
@@ -10,15 +12,17 @@ function App() {
   ];
 
   const categories = servicsPramiters.map((category) =>
-    <a href="/Category"  key={category.id} className="cat-card" >
+    <Link to={`/category/:{this.servicsPramiters.id}`}  key={category.id} className="cat-card" >
       {/* <!-- <img src="" alt=""/> --> */}
       <h3>{category.cate}</h3>
-    </a>
+    </Link>
   );
   return (
 
     <section class="main-container">
-
+    <Routes>
+      <Route path="category" element={<Category />}></Route>
+    </Routes>
 
       <div className="inside-container col-lg-6 col-12 m-auto">
         <Navbar />
