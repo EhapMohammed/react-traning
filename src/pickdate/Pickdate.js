@@ -28,7 +28,12 @@ function Pickdate() {
 
             {/* <p className="text-muted mt-3 fw-bold"> <i className="far fa-clock me-1"></i> 1 hr 15 min</p> */}
             {/* ck date goes here */}
-            <div className="my-2" id="s-details"></div>
+            <div className="my-2" id="s-details">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap 
+            into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+             and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </div>
             <div className="show-more-less-buttons">
                 <span className="show-more-btn" onclick="showMore()"></span>
                 <span className="show-less-btn" onclick="showLess()"></span>
@@ -51,7 +56,14 @@ function Pickdate() {
                     </svg>
 
                     <select name="time_zone" id="time_zone" className="col-12 time_zone form-control">
-                        <option value="" >
+                        <option value="Egypt" >
+                            Egypt
+                        </option>
+                        <option value="Kuwait" >
+                            Kuwait
+                        </option>
+                        <option value="Saudi Arabia" >
+                            Saudi Arabia
                         </option>
                     </select>
                 </div>
