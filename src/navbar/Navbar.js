@@ -8,29 +8,45 @@ function Navbar(){
     <>
        <nav className="navbar">
           <p>Choose Languge</p>
-          <div className="dropdown">
-            <button className="btn border-secondary-subtle dropdown-toggle" type="button" data-bs-auto-close="outside"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              English
-            </button>
-            <ul className="dropdown-menu">
-              <li>
-                <label id="lable_x" data-action="{{ route('users.change_lang_home') }}"
-                  data-value="{{ $localCode }}" for="eng-us"
-                  className="d-flex justify-content-around align-items-center mouse-pointer">
-                  <div className="d-flex align-items-center gap-2">
-                    <img src={logo} width='40' height="32"
-                      alt="awqaty languages" />
-                    <p className="mb-0">English</p>
-                  </div>
+          <div className="langugeDropdown dropdown">
+                <button className="btn border-secondary-subtle dropdown-toggle" type="button" data-bs-auto-close="outside"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    EN
+                </button>
+                <ul className="dropdown-menu px-2 py-0">
+                        <li>
+                            <label id="lable_x" data-action=""
+                                data-value="" for="en"
+                                className="d-flex justify-content-between align-items-center mouse-pointer">
+                                <div className="d-flex align-items-center gap-2">
+                                    <img src="" width='24' height="18"
+                                        alt="awqaty languages"/>
+                                    <p className="mb-0">EN</p>
+                                </div>
 
-                  {/* <!-- <input id="check_box_lang" className="form-check-input" type="radio"
-                                    value="{{ $localCode }}" name="languge" id="eng-us"> --> */}
-                </label>
+                                <input id="en" style={{width:"19px",height:"19px"}} type="radio"
+                                    value="" name="languge" />
+                            </label>
 
-              </li>
-            </ul>
-          </div>
+                        </li>
+
+                        <li>
+                            <label id="lable_x" data-action=""
+                                data-value="" for="ar"
+                                className="d-flex justify-content-between align-items-center mouse-pointer">
+                                <div className="d-flex align-items-center gap-2">
+                                    <img src="" width='24' height="18"
+                                        alt="awqaty languages"/>
+                                    <p className="mb-0">AR</p>
+                                </div>
+
+                                <input id="ar" style={{width:"19px",height:"19px"}} type="radio"
+                                    value="" name="languge" />
+                            </label>
+
+                        </li>
+                </ul>
+            </div>
 
         </nav>
     </>
