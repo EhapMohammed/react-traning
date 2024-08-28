@@ -1,11 +1,29 @@
-import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import Calendar from "../calender/Calender";
+import Times from "../Times.js";
+import { servicsPramiters } from "../Jsonapis.js";
+import { useEffect, useState } from "react";
+
+
 
 function Pickdate() {
-    const params = useParams();
 
-    const [selectedService,setselectedService] = useState(params.service_name)
     
+    const [selectedservice,setSelectedservice] = useState({})
+
+    const params = useParams();
+    useEffect(()=>{
+        servicsPramiters.map(service=> {
+            if (service.name==params.service_name){
+
+                setSelectedservice(service);
+            }
+        })
+    },[])
+
+    // const [selectedService,setselectedService] = useState(params.service_name);
+    
+
   
   return ( <div className="inside-container col-lg-6 col-12 m-auto">
                 <nav className="navbar">
@@ -31,10 +49,11 @@ function Pickdate() {
                     {/* <img src="" alt="" /> */}
                     <div className="serv-name w-100">
                     <p className="text-muted fw-semibold"></p>
-                    <h1 className="fw-bolder" style={{ fontSize: "23px" }}>{params.service_name}</h1>
+                    <h1 className="fw-bolder" style={{ fontSize: "23px" }}>{selectedservice.name}</h1>
                     <div className="serv-price d-flex justify-content-between">
+                        {selectedservice.price}
                         <span>
-                        <i className="far fa-clock me-1"></i>1 hr 15 min
+                        <i className="far fa-clock me-1"></i>{selectedservice.time}
                         </span>
                     </div>
                     </div>
@@ -43,15 +62,7 @@ function Pickdate() {
                 {/* <p className="text-muted mt-3 fw-bold"> <i className="far fa-clock me-1"></i> 1 hr 15 min</p> */}
                 {/* ck date goes here */}
                 <div className="my-2" id="s-details">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                    industry. Lorem Ipsum has been the industry's standard dummy text ever
-                    since the 1500s, when an unknown printer took a galley of type and
-                    scrambled it to make a type specimen book. It has survived not only
-                    five centuries, but also the leap into electronic typesetting,
-                    remaining essentially unchanged. It was popularised in the 1960s with
-                    the release of Letraset sheets containing Lorem Ipsum passages, and
-                    more recently with desktop publishing software like Aldus PageMaker
-                    including versions of Lorem Ipsum.
+                {selectedservice.description}
                 </div>
                 <div className="show-more-less-buttons">
                     <span className="show-more-btn" onclick="showMore()"></span>
@@ -67,7 +78,7 @@ function Pickdate() {
 
                 <div className="zone-container">
                     <label for="time_zone" className="col-12 fw-bold form-label">
-                    Time Zone
+                        Time Zone
                     </label>
                     <div className="d-flex align-items-center gap-2">
                     <svg
@@ -77,10 +88,10 @@ function Pickdate() {
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                     >
-                        <path
-                        d="M8 16C3.58172 16 0 12.4182 0 8C0 3.58172 3.58172 0 8 0C12.4182 0 16 3.58172 16 8C16 12.4182 12.4182 16 8 16ZM6.16802 14.1339C5.39794 12.5007 4.92586 10.6994 4.82185 8.8H1.64951C1.9664 11.3412 3.77311 13.4198 6.16802 14.1339ZM6.42456 8.8C6.54488 10.751 7.10224 12.5838 8 14.2016C8.89776 12.5838 9.45512 10.751 9.57544 8.8H6.42456ZM14.3505 8.8H11.1782C11.0742 10.6994 10.6021 12.5007 9.832 14.1339C12.2269 13.4198 14.0336 11.3412 14.3505 8.8ZM1.64951 7.2H4.82185C4.92586 5.30062 5.39794 3.49926 6.16802 1.86605C3.77311 2.58026 1.9664 4.6588 1.64951 7.2ZM6.42456 7.2H9.57544C9.45512 5.24898 8.89776 3.4162 8 1.79839C7.10224 3.4162 6.54488 5.24898 6.42456 7.2ZM9.832 1.86605C10.6021 3.49926 11.0742 5.30062 11.1782 7.2H14.3505C14.0336 4.6588 12.2269 2.58026 9.832 1.86605Z"
-                        fill="#3A3B4E"
-                        />
+                    <path
+                    d="M8 16C3.58172 16 0 12.4182 0 8C0 3.58172 3.58172 0 8 0C12.4182 0 16 3.58172 16 8C16 12.4182 12.4182 16 8 16ZM6.16802 14.1339C5.39794 12.5007 4.92586 10.6994 4.82185 8.8H1.64951C1.9664 11.3412 3.77311 13.4198 6.16802 14.1339ZM6.42456 8.8C6.54488 10.751 7.10224 12.5838 8 14.2016C8.89776 12.5838 9.45512 10.751 9.57544 8.8H6.42456ZM14.3505 8.8H11.1782C11.0742 10.6994 10.6021 12.5007 9.832 14.1339C12.2269 13.4198 14.0336 11.3412 14.3505 8.8ZM1.64951 7.2H4.82185C4.92586 5.30062 5.39794 3.49926 6.16802 1.86605C3.77311 2.58026 1.9664 4.6588 1.64951 7.2ZM6.42456 7.2H9.57544C9.45512 5.24898 8.89776 3.4162 8 1.79839C7.10224 3.4162 6.54488 5.24898 6.42456 7.2ZM9.832 1.86605C10.6021 3.49926 11.0742 5.30062 11.1782 7.2H14.3505C14.0336 4.6588 12.2269 2.58026 9.832 1.86605Z"
+                    fill="#3A3B4E"
+                    />
                     </svg>
 
                     <select
@@ -99,34 +110,11 @@ function Pickdate() {
                     <h3 className="services-header">Select a day</h3>
                     {/* HTML code for button and date picker container */}
                     <div className="form-group">
-                    <div className="calendar"></div>
+                     <Calendar />
                     </div>
                 </div>
 
-                <div id="timePicker" className="timePicker mt-md-3">
-                    <div className="timePicker-head">
-                    <h3 className="timePicker-title">
-                        <span></span>
-                    </h3>
-                    </div>
-
-                    <div id="timesContainer" className="times-container">
-                    <a
-                        href=""
-                        data-id=""
-                        data-from=""
-                        data-to=""
-                        data-status=""
-                        className=""
-                    >
-                        <i className="fas fa-check-circle selected_time"></i>
-                    </a>
-                    </div>
-
-                    <div id="notAvailableTimes" style={{ display: "none" }}>
-                    <div className="notimeAvilabale"></div>
-                    </div>
-                </div>
+                <Times selectedservice={selectedservice}/>
                 </div>
             </div>
   );

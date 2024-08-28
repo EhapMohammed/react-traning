@@ -2,13 +2,9 @@ import Navbar from "../navbar/Navbar";
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import Services from "../services/Services";
+import { servicsPramiters } from "../Jsonapis";
 function Home() {
 
-const servicsPramiters = [
-    { cate: 'Web', id: 1, name: 'Service one', price: 200, time: '00:30', description: 'descitption one' },
-    { cate: 'Graphic', id: 2, name: 'Service Two', price: 30, time: '00:30', description: 'descitption two' },
-    { cate: 'Editing', id: 3, name: 'Service Three', price: 500, time: '00:30', description: 'descitption three' },
-    ];
     
 const [services , useServices] = useState(servicsPramiters);
 
