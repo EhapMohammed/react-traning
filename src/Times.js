@@ -1,21 +1,11 @@
 import $ from 'jquery';
 import { servicsPramiters } from './Jsonapis';
+import { Link } from 'react-router-dom';
 
 function Times (props){
 
-    const times = props.selectedservice.map((time) => 
-                    <a key={time.id}
-                        href=""
-                        data-id=""
-                        data-from=""
-                        data-to=""
-                        data-status=""
-                        className=" position-relative"
-                    >
-                        {time.starttime}
-                        <i className="fas fa-check-circle selected_time"></i>
-                    </a>
-    );
+    console.log(props.selectedservice)
+
 
     $("body").on("click", ".click_time", function (e) {
         e.preventDefault()
@@ -60,7 +50,18 @@ function Times (props){
                     </div>
 
                     <div id="timesContainer" className="times-container">
-                    {times}
+                        {props.selectedservice.map((item) => 
+                            <Link to={`${item.name}/booking-details`} key={item}
+                                data-id=""
+                                data-from=""
+                                data-to=""
+                                data-status=""
+                                className=" position-relative"
+                            >
+                                {item}
+                                <i className="fas fa-check-circle selected_time"></i>
+                            </Link>
+                         )}
                     </div>
 
                     <div id="notAvailableTimes" style={{ display: "none" }}>

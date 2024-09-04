@@ -14,13 +14,12 @@ function Pickdate() {
     const params = useParams();
     useEffect(()=>{
         servicsPramiters.map(service=> {
-            if (service.name==params.service_name){
-
+            if (service.name == params.service_name){
                 setSelectedservice(service);
             }
         })
     },[])
-
+    console.log(selectedservice)
     // const [selectedService,setselectedService] = useState(params.service_name);
     
 
